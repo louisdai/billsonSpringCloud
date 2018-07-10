@@ -4,8 +4,6 @@ spring:
   cloud:
     consul:
       discovery:
-        host: localhost
-        port: 8500
         register: true
         enabled: true
         healthCheckPath: /health/status
@@ -17,38 +15,6 @@ spring:
         defaultContext: apps
         profileSeparator: '::'
 
-#feign:
-#  hystrix:
-#    enabled: true
-#
-#hystrix:
-#  command:
-#    "IRankerService#rank(RankRequest)":
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 100
-#      circuitBreaker:
-#        errorThresholdPercentage: 60
-#        sleepWindowInMilliseconds: 2000
-#      metrics:
-#        rollingStats:
-#          timeInMilliseconds: 5000
-#          numBuckets: 50
-#    "IRecallerService#recall(RecallRequest)":
-#        execution:
-#          isolation:
-#            thread:
-#              timeoutInMilliseconds: 100
-#        circuitBreaker:
-#          errorThresholdPercentage: 60
-#          sleepWindowInMilliseconds: 2000
-#        metrics:
-#          rollingStats:
-#            timeInMilliseconds: 5000
-#            numBuckets: 50
-#
-#
 management:
   security:
     enabled: false

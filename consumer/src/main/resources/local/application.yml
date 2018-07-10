@@ -1,113 +1,52 @@
-#rec-project:
-#  toutiao:
-#    tids:
-#    enabled-groups:
-#      - base
-#      - mock
-#    get-user-processors:
-#      base:
-#        - processor-dummy-get-user
-#
-#    recall-processors:
-#      base:
-#        - processor-recall-service
-#      mock:
-#        - recall-demo-empty
-#
-#    rank-processors:
-#      base:
-#        - rank-demo-reverse
-#
-#    rerank-processors:
-#      base:
-#        - processor-rerank-service
-#      mock:
-#        - rerank-demo-numbnode
-#
+
+rank-processor:
+  timeout: 100
+  pagesize: 3
+  feed: "feed_"
 server:
   port: 8095
-#
-#endpoints:
-#  health:
-#    sensitive: false
-#  restart:
-#    enabled: true
-#  shutdown:
-#    enabled: true
-#
-#management:
-#  security:
-#    enabled: false
-#  health:
-#    redis:
-#      enabled: false
-#
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+management:
+  security:
+    enabled: false
+  health:
+    redis:
+      enabled: false
+
 logging:
   level:
     root: INFO
     org.springframework.cloud.consul: DEBUG
 
-#cache:
-#  expire-after-write-seconds: 300
-#  init-capacity: 1024000
-#  max-capacity: 1024000
-#
-#okhttp:
-#  pool:
-#    read-timeout: 200
-#    write-timeout: 200
-#    connect-timeout: 50
-#    max-idle: 100
-#
-#redis:
-#  user-action:
-#    database: 0
-#    timeout: 200
-#    pool:
-#      max-idle: 10
-#      min-idle: 1
-#      max-total: 64
-#      max-wait: 100
-#    cluster:
-#      nodes: 10.200.128.172:6339,10.200.128.183:6369,10.200.128.171:6315,10.200.128.184:6365
-#
-#  user-props:
-#    database: 0
-#    timeout: 200
-#    pool:
-#      max-idle: 10
-#      min-idle: 1
-#      max-total: 64
-#      max-wait: 100
-#    cluster:
-#      nodes: 10.200.128.178:6246,10.200.128.178:6241,10.200.128.177:6229,10.200.128.178:6240,\
-#            10.200.128179:6245,10.200.128.175:6230,10.200.128.178:6221,10.200.128.175:6232,\
-#            10.200.128.178:6239,10.200.128.177:6208,10.200.128.179:6241,10.200.128.179:6244,\
-#            10.200.128.179:6221,10.200.128.175:6228,10.200.128.178:6248,10.200.128.179:6217,\
-#            10.200.128.175:6209,10.200.128.175:6207,10.200.128.179:6222,10.200.128.179:6247,\
-#            10.200.128.179:6223,10.200.128.175:6231,10.200.128.175:6234,10.200.128.175:6236,\
-#            10.200.128.177:6207,10.200.128.177:6228,10.200.128.178:6217,10.200.128.175:6203,\
-#            10.200.128.179:6238,10.200.128.175:6202,10.200.128.177:6203,10.200.128.178:6237,\
-#            10.200.128.175:6233
-#
-#  user-profile:
-#    database: 0
-#    timeout: 200
-#    pool:
-#      max-idle: 10
-#      min-idle: 1
-#      max-total: 64
-#      max-wait: 100
-#    cluster:
-#      nodes: 10.200.131.28:6616,10.200.131.27:6620,10.200.131.29:6634
-#
-#  user-history:
-#    database: 0
-#    timeout: 200
-#    pool:
-#      max-idle: 10
-#      min-idle: 1
-#      max-total: 64
-#      max-wait: 100
-#    cluster:
-#      nodes: 10.200.130.78:6711,10.200.130.77:6710,10.200.130.82:6745,10.200.130.80:6729
+cache:
+  expire-after-write-seconds: 3
+  init-capacity: 1024000
+  max-capacity: 1024000
+
+okhttp:
+  pool:
+    read-timeout: 200
+    write-timeout: 200
+    connect-timeout: 50
+    max-idle: 100
+
+redis:
+  doc-materiel:
+    database: 0
+    timeout: 30
+    pool:
+      max-idle: 10
+      min-idle: 1
+      max-total: 64
+      max-wait: 30
+    cluster:
+      nodes: 10.200.128.178:6108,10.200.128.177:6102,10.200.128.178:6107,10.200.128.175:6101,\
+            10.200.128.179:6107,10.200.128.175:6102,10.200.128.177:6104
