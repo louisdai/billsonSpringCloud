@@ -15,6 +15,9 @@ spring:
         defaultContext: apps
         profileSeparator: '::'
 
+feign:
+  hystrix:
+    enabled: false
 
 management:
   security:

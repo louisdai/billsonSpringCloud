@@ -2,11 +2,13 @@ package consumer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+@EnableAutoConfiguration
 
 @Slf4j
 @EnableFeignClients
@@ -14,10 +16,11 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @EnableHystrixDashboard
 @EnableDiscoveryClient
 @SpringBootApplication
+
 public class ConsumerStarter {
     public static void main(String[] args) {
-            log.info("consumer is starting...");
+        log.info("consumer is starting...");
         SpringApplication.run(ConsumerStarter.class, args);
-            log.info("consumer is started.");
+        log.info("consumer is started.");
     }
 }

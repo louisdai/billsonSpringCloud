@@ -1,16 +1,26 @@
 package producer.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import producer.feignClient.ConsumerClient;
 
 @RestController
 @RequestMapping("/producer")
 public class ProducerController {
 
+    @Autowired
+    ConsumerClient consumerClient;
+
     @RequestMapping(value = "test1", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
-    public String test1(@RequestParam String request) {
-        return "TEST1 SUCCESS" + request;
+    public String test1(@RequestBody String request) {
+        System.out.println("success");
+        return "TEST1 SUCCESS " + request;
+    }
+
+
+    @RequestMapping(value = "test2",method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    public String test2(@RequestBody String request){
+        System.out.println("producer test2 ...");
+        return consumerClient.test2(request);
     }
 }
