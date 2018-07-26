@@ -14,6 +14,12 @@ endpoints:
   shutdown:
     enabled: true
 
+swagger:
+  enable: true
+  packageScan: consumer.controller
+  title: ${spring.application.name}
+  version: 1.0
+
 management:
   security:
     enabled: false

@@ -1,4 +1,4 @@
-package config;
+package consumer.config;
 
 import feign.Feign;
 import okhttp3.ConnectionPool;
