@@ -12,8 +12,20 @@ spring:
         failFast: false
         enabled: true
         prefix: config
-        defaultContext: apps
-        profileSeparator: '::'
+  jackson:
+    default-property-inclusion: non_null
+
+feign:
+  user-service: test-rec-sys-user-service
+  recall-service: test-rec-sys-recaller
+  ranker-service: test-rec-sys-ranker
+  reranker-service: test-rec-sys-reranker
+  hystrix:
+    enabled: false
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
 
 management:
   security:

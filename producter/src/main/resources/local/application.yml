@@ -5,6 +5,15 @@ rank-processor:
   feed: "feed_"
 server:
   port: 8099
+  tomcat:
+    max-threads: 500
+    max-connections: 2048
+
+swagger:
+  enable: true
+  packageScan: producer.controller
+  title: ${spring.application.name}
+  version: 1.0
 
 endpoints:
   health:
@@ -27,7 +36,7 @@ logging:
     org.springframework.cloud.consul: DEBUG
 
 cache:
-  expire-after-write-seconds: 3
+  expire-after-write-seconds: 30
   init-capacity: 1024000
   max-capacity: 1024000
 
@@ -41,12 +50,12 @@ okhttp:
 redis:
   doc-materiel:
     database: 0
-    timeout: 30
+    timeout: 1000
     pool:
-      max-idle: 10
-      min-idle: 1
-      max-total: 64
-      max-wait: 30
+      max-idle: 50
+      min-idle: 10
+      max-total: 128
+      max-wait: 60
     cluster:
-      nodes: 10.200.128.178:6108,10.200.128.177:6102,10.200.128.178:6107,10.200.128.175:6101,\
-            10.200.128.179:6107,10.200.128.175:6102,10.200.128.177:6104
+      nodes: 10.200.128.189:6930,10.200.128.189:6931  # test env
+
