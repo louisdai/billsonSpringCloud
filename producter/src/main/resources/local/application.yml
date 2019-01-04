@@ -15,17 +15,9 @@ swagger:
   title: ${spring.application.name}
   version: 1.0
 
-endpoints:
-  health:
-    sensitive: false
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
+
 
 management:
-  security:
-    enabled: false
   health:
     redis:
       enabled: false
@@ -36,9 +28,9 @@ logging:
     org.springframework.cloud.consul: DEBUG
 
 cache:
-  expire-after-write-seconds: 30
-  init-capacity: 1024000
-  max-capacity: 1024000
+  expire-after-write-seconds: 3
+  init-capacity: 256000
+  max-capacity: 256000
 
 okhttp:
   pool:
