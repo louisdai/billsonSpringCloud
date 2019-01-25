@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 public class TestDemo {
 
-    private int id;
+    private String id;
     List<TestDemo> subList = Lists.newArrayList();
 }

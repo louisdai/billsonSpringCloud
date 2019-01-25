@@ -51,3 +51,13 @@ redis:
     cluster:
       nodes: 10.200.128.189:6930,10.200.128.189:6931  # test env
 
+  recommend-result:
+    database: 0
+    timeout: 1000
+    pool:
+      max-idle: 50
+      min-idle: 10
+      max-total: 128
+      max-wait: 100
+    cluster:
+      nodes: 10.196.24.28:6941,10.196.24.30:6960,10.196.24.22:6856,10.196.24.20:6836,10.196.24.19:6832,10.196.24.16:6785

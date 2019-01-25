@@ -34,18 +34,19 @@ public class BeanCopierUtils {
     public static void main(String[] args) {
         TestDemo td = new TestDemo();
         TestDemo std = new TestDemo();
-        std.setId(0);
+        std.setId("0");
         List<TestDemo> slist = Lists.newArrayList();
         slist.add(std);
-        td.setId(1);
+        td.setId("1");
         td.setSubList(slist);
         TestDemo ctd = new TestDemo();
         copyProperties(td, ctd);
-        ctd.setId(2);
+        ctd.setId("2");
         List<TestDemo> cslist = Lists.newArrayList();
         TestDemo cstd = new TestDemo();
-        cstd.setId(3);
+        cstd.setId("3");
         cslist.add(cstd);
+        ctd.getSubList().add(cstd);
         ctd.setSubList(cslist);
         System.out.println(td.toString());
         System.out.println(ctd.toString());

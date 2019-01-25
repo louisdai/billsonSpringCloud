@@ -2,6 +2,7 @@ package producer.util;
 
 import org.springframework.util.StringUtils;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,14 +17,21 @@ public class Jaccard {
 //        String str2 = sc.nextLine();
 
         String str1 = "我是B中b国人!";
-        String str2  = "b我不是美国 人!";
+        String str2 = "b我不是美国 人!";
         Set<Character> s1 = new HashSet<>();//set元素不可重复
         Set<Character> s2 = new HashSet<>();
-
-        for (int i = 0; i < str1.length(); i++) {
-            s1.add(str1.charAt(i));//将string里面的元素一个一个按索引放进set集合
+        String b_str = "";
+        try {
+            byte[] tmp = str1.getBytes("ISO-8859-1");
+            b_str = new String(tmp, "utf-8");
+            System.out.println(b_str.toString());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-
+        for (int i = 0; i < b_str.length(); i++) {
+            s1.add(b_str.charAt(i));//将string里面的元素一个一个按索引放进set集合
+        }
+        System.out.println(s1.toString());
         for (int j = 0; j < str2.length(); j++) {
             s2.add(str2.charAt(j));
         }

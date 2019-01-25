@@ -18,21 +18,21 @@ public class TestUtil {
 
     @PostConstruct
     public void init() {
-        TestDemo td = new TestDemo();
-        td.setId(123);
-        localCache.put("key", td);
-        TestDemo after = (TestDemo) localCache.getIfPresent("key");
-        Map<String,TestDemo> map = Maps.newHashMap();
-        map.put("key",after);
-        System.out.println(JSON.toJSONString(after));
-        try {
-            Thread.sleep(5000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(localCache.getIfPresent("key"));
-        System.out.println(JSON.toJSONString(map));
-        System.out.println(JSON.toJSONString(after));
+//        TestDemo td = new TestDemo();
+//        td.setId(123);
+//        localCache.put("key", td);
+//        TestDemo after = (TestDemo) localCache.getIfPresent("key");
+//        Map<String,TestDemo> map = Maps.newHashMap();
+//        map.put("key",after);
+//        System.out.println(JSON.toJSONString(after));
+////        try {
+////            Thread.sleep(5000L);
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//        System.out.println(localCache.getIfPresent("key"));
+//        System.out.println(JSON.toJSONString(map));
+//        System.out.println(JSON.toJSONString(after));
     }
 
 }
