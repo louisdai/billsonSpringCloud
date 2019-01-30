@@ -1,0 +1,13 @@
+syntax="proto3"; 
+import "PhoneNumberbuf.proto.txt"; // 引入消息
+option java_package = "";   
+option java_outer_classname = "Stafbuf";   
+message Staf  {   
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+    
+  // 引入的消息类型
+  repeated PhoneNumber phone = 4;
+
+}

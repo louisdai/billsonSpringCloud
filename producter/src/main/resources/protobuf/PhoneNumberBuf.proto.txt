@@ -1,0 +1,14 @@
+syntax="proto3"; 
+option java_package = "";   
+option java_outer_classname = "PhoneNumberBuf";   
+message PhoneNumber  {   
+   string number = 1; 
+  
+  // 枚举示例
+  enum PhoneType { 
+    MOBILE = 0; 
+    TELEPHONE = 1; 
+  }
+   PhoneType type = 2;
+ 
+}
